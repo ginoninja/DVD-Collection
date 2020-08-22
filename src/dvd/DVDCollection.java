@@ -168,7 +168,6 @@ public class DVDCollection {
 		CLI cli = new CLI();
 		System.out.println("Welcome to your DVD collection! "
 				+ "Please enter a number that corresponds to one of the following instructions!");
-		while (cli.select())
-			;
+		while (cli.select());
 	}
 }
