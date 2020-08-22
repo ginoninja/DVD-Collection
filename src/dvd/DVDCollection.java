@@ -21,10 +21,8 @@ public class DVDCollection {
 
 	public DVDCollection() throws FileNotFoundException, ClassNotFoundException, IOException {
 		collection = new ArrayList<>();
-		// see if file exist, if it does read contents into array
 		try {
 			fileRead();
-			// if file does not exits create file
 		} catch (IOException e) {
 			File file = new File("DVDCollection.txt");
 		}
@@ -56,14 +54,9 @@ public class DVDCollection {
 	 */
 	public DVD addDVD(String title, String artistName, int yearPurchased, String category)
 			throws FileNotFoundException, IOException {
-		// create DVD object
 		DVD dvd = new DVD(title, artistName, yearPurchased, category);
-		// add to array list
 		collection.add(dvd);
-		// add to file
-		ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream("DVDCollection.txt"));
-		objectOut.writeObject(collection);
-		objectOut.close();
+		updateFile();
 		return dvd;
 	}
 
